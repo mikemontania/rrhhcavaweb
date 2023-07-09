@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class PagesComponent implements OnInit {
+  sidebarCollapsed: boolean = false;
 
-  constructor() { }
-
+  toggleSidebar(): void {
+    this.sidebarCollapsed = !this.sidebarCollapsed;
+  }
   ngOnInit() { 
   }
 

@@ -1,197 +1,111 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
-* {
-    margin: 0px;
-    padding: 0px;
+/** body **/
+.dashboard-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
-
-/*
-*::-moz-selection {
-  background-attachment: scroll;
-  background-clip: border-box;
-  background-color: #ef4836;
-  background-image: none;
-  background-origin: padding-box;
-  background-position: 0 0;
-  background-repeat: repeat;
-  background-size: auto auto;
-  color: #fff;
-}
-*/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-    margin-top: 0px;
+.header-sidebar-container {
+  display: flex;
 }
 
-body,
-html {
+.router-outlet-container {
+  flex-grow: 1;
+}
+.app-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  .sidebar-wrapper {
+    flex: 0 0 auto;
+  }
+  
+  .content-wrapper {
+    flex: 1 1 auto;
+    overflow-y: auto;
+  }
+  
+  .example-container {
+    margin-top: 40px;
+    height: calc(100% - 40px);
+  }
+  
+  .mat-sidenav-container {
     height: 100%;
+  }
+ 
+    
+   
+ 
+  
+/** body **/
+/** header **/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
 }
 
-a:hover,
-a:focus {
-    outline: none;
-    text-decoration: none;
+.mattoolbar0 {
+  margin: 0;
 }
 
-.body {
-    font-size: 14px;
+.mat-toolbar {
+  height: 45px;
+  padding: 0;
+  margin: 0;
 }
 
-.wrapper {
-    position: relative;
-    height: 100%;
+.user-avatar {
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: middle;
 }
 
-.left-side {
-    background-color: #212121;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 300px;
+header {
+  overflow-x: hidden;
 }
 
-.logo {
-    background-color: #ffffff;
-    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.4) inset;
-    height: 174px;
-    line-height: 160px;
-    text-align: center;
+.header-title {
+  margin-left: 8px;
+  font-family: 'Arial', sans-serif; /* Reemplaza 'Arial' con la fuente deseada */
 }
 
-.left-content {
-    text-align: right;
+.title-font {
+  font-size: 18px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  font-weight: bold; /* Opcional: Agrega negrita según tus necesidades */
 }
 
-.left-content {}
-
-.left-content ul {}
-
-.left-content ul li {
-    border-bottom: 1px solid #70a1ff;
-    display: block;
-    height: 50px;
+.user-avatar-container {
+  display: flex;
+  align-items: center;
+  width: 200px;
 }
 
-.left-content ul li.active {
-    background-color: #70a1ff;
+.user-avatar-container .user-avatar {
+  margin-right: 8px;
+  width: 25px;
+  height: 25px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.left-content ul li.active a span {
-    border-color: #ffffff;
+.mat-icon-button .user-avatar {
+  vertical-align: middle;
 }
 
-.left-content ul li a {
-    color: #fff;
-    line-height: 50px;
-    padding-right: 30px;
-    display: block;
-    text-decoration: none;
+.mat-menu-panel .mat-menu-content {
+  margin-top: -8px;
 }
 
-.left-content ul li a span {
-    border-right: 1px solid #70a1ff;
-    color: #ffffff;
-    display: inline-block;
-    float: left;
-    font-size: 20px;
-    height: 49px;
-    line-height: 50px;
-    text-align: center;
-    width: 50px;
+.mat-toolbar button.mat-button.ml-5 {
+  margin-left: 100px; /* Ajusta el valor en píxeles según tus necesidades */
 }
-
-.copyright {
-    background-color: #70a1ff;
-    bottom: 0;
-    color: #ffffff;
-    left: 0;
-    padding: 20px;
-    position: absolute;
-    text-align: right;
-    width: 100%;
-}
-
-.copyright p {
-    margin-bottom: 0px;
-}
-
-.copyright p a {
-    color: #212121;
-    font-weight: 700;
-}
-
-.copyright p span {
-    display: block;
-}
-
-.right-side {
-    padding-left: 300px;
-}
-
-.right-content {
-    padding: 50px;
-}
-
-.content {
-    display: none;
-}
-
-.content.active {
-    display: block;
-}
-
-pre {
-    background: url(./favicon.ico);
-    line-height: 19px;
-    text-align: left;
-    padding: 0px;
-    margin-top: 35px;
-    font-size: 13px;
-    margin-bottom: 35px;
-}
-
-.content {}
-
-.content a {
-    color: #70a1ff;
-}
-
-.content h1 {
-    text-transform: uppercase;
-    font-weight: 700;
-    padding-bottom: 35px;
-    margin-bottom: 35px;
-    border-bottom: 1px solid #ddd;
-}
-
-#one span {
-    color: #70a1ff;
-}
-
-.content#source {}
-
-.content#source > ul li {}
-
-.content#source > ul li span {
-    font-weight: 700;
-    display: block;
-}
-
-.content#source > ul li > ul {
-    padding-left: 25px;
-}
-.logo h1 {
-  padding: 65px 0;
-}
-.tree-viewer-pd{
-	padding:30px;
-}
+/** header **/

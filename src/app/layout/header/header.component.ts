@@ -1,43 +1,16 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core'; 
+import { Component, ElementRef, EventEmitter, OnDestroy, OnInit, Output, ViewChild } from '@angular/core'; 
+import { SidebarService } from 'src/app/services/service.index';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styles: []
 })
-export class HeaderComponent implements OnInit, OnDestroy {
- 
- 
-  pendientes: any[] = [];
-  sinImagen: string = './assets/images/users/user_img.png';
-  imagenEmpresa: string = './assets/images/logo-text.png';
-  constructor( 
-  ) { }
-  ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
-  }
+export class HeaderComponent   {
+  @Output() toggleSidebar: EventEmitter<void> = new EventEmitter<void>();
 
-  ngOnChanges(){
-    
-  }
+  constructor() {}
 
-
-  async ngOnInit() {
-     
+  onToggleSidebar(): void {
+    this.toggleSidebar.emit();
   }
-  cargar() {
-    
   }
-  logout() {
-    
-  }
-
-  async actualizarPendientes() {
-    
-  }
-
-  async findPendientes() {
-    
-  }
-
-
-}

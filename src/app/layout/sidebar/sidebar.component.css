@@ -1,0 +1,32 @@
+.sidenav-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .sidenav-item mat-icon {
+    margin-right: 8px;
+  }
+  
+  .sub-menu {
+    margin-left: 24px;
+ 
+  }
+  
+  .menu-text {
+    vertical-align: middle;
+  }
+  
+  .show-icons .sidenav-item mat-icon {
+    display: block;
+  }
+  
+  .show-icons .sidenav-item .menu-text {
+    margin-left: 8px;
+  }
+  .menu-item:hover,
+.menu-item:hover .menu-text,
+.sub-menu .menu-item:hover,
+.sub-menu .menu-item:hover .menu-text {
+  background-color: #e0e0e0;
+}

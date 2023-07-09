@@ -1,52 +1,22 @@
-<!-- ============================================================== -->
-<!-- Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->
-<aside class="left-sidebar">
-    <!-- Sidebar scroll-->
-    <div class="scroll-sidebar">
-        <!-- Sidebar navigation-->
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav">
-                <!--  <li class="user-profile">
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                        <img src="assets/images/users/profile.png" alt="user" />
-                        <span class="hide-menu">Steave Jobs </span>
-                    </a>
-                    <ul aria-expanded="false" class="collapse">
-                        <li><a href="javascript:void()">My Profile </a></li>
-                        <li><a href="javascript:void()">My Balance</a></li>
-                        <li><a href="javascript:void()">Inbox</a></li>
-                        <li><a routerLinkActive="active" routerLink="/account-settings">Account Setting</a></li>
-                        <li><a (click)="_loginService.logout()" class="pointer">Logout</a></li>
-                    </ul>
-                </li> -->
-                <!-- <li class="nav-devider"></li>
-               <li class="nav-small-cap">PERSONAL</li>-->
-
-                <li *ngFor="let menu of _sidebar.menu">
-                    <a  *ngIf=" permitirAcceso(_loginService.user.authorities[0],menu.excluir)" class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu"> {{ menu.titulo }} <span class="label label-rouded label-themecolor pull-right"> {{ menu.submenu.length }} </span></span></a>
-
-                    <!-- <a  *ngIf="_loginService.user.authorities[0] == 'ROLE_'+menu.rol ||  menu.rol == 'TODOS'" class="has-arrow waves-effect waves-dark" aria-expanded="false"><i [class]="menu.icono"></i><span class="hide-menu"> {{ menu.titulo }} <span class="label label-rouded label-themecolor pull-right"> {{ menu.submenu.length }} </span></span></a> -->
-                    <ul aria-expanded="false" class="collapse" >
-
-                        <li *ngFor="let submenu of menu.submenu" >
-                            <!-- <a *ngIf="_loginService.user.authorities[0] == 'ROLE_'+submenu.rol ||  submenu.rol == 'TODOS'"  routerLinkActive="active" [routerLink]="[ submenu.url ]"> {{ submenu.titulo }} </a> -->
-                            <a *ngIf="permitirAcceso(_loginService.user.authorities[0],submenu.excluir)"  routerLinkActive="active" [routerLink]="[ submenu.url ]"> {{ submenu.titulo }} </a>
-                        </li>
-
-                        <!-- <li><a href="index2.html">Analytical</a></li>
-                        <li><a href="index3.html">Demographical</a></li>
-                        <li><a href="index4.html">Modern</a></li> -->
-                    </ul>
-                </li>
-
-
-            </ul>
-        </nav>
-        <!-- End Sidebar navigation -->
-    </div>
-    <!-- End Sidebar scroll-->
-</aside>
-<!-- ============================================================== -->
-<!-- End Left Sidebar - style you can find in sidebar.scss  -->
-<!-- ============================================================== -->
+<mat-sidenav-container class="example-container" fullscreen>
+  <mat-sidenav #sidenav mode="side" [opened]="!isCollapsed" [style.width.px]="sidebarWidth">
+    <mat-nav-list class="sub-menu">
+      <ng-container *ngFor="let menuItem of menuItems">
+        <mat-list-item routerLinkActive="active" [routerLink]="menuItem.route" (click)="toggleSubMenu(menuItem)"  >
+          <div class="sidenav-item">
+            <mat-icon mat-list-icon>{{ menuItem.icon }}</mat-icon>
+            <span class="menu-text">{{ menuItem.name }}</span>
+          </div>
+          <div *ngIf="menuItem.subItems && menuItem.subItems.length > 0" class="sub-menu"  >
+            <mat-list>
+              <mat-list-item *ngFor="let subMenuItem of menuItem.subItems" routerLinkActive="active"
+                [routerLink]="subMenuItem.route">
+                <span class="menu-text">{{ subMenuItem.name }}</span>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </mat-list-item>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
